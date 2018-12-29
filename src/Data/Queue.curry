@@ -73,7 +73,7 @@ matchHead :: Queue a -> Maybe (a, Queue a)
 matchHead (S _    []     _    []     ) = Nothing
 matchHead (S _    []     _    [x]    ) = Just (x, empty)
 matchHead (S _    []     _    (_:_:_))
-  = error $ "Dequeue.matchHead: illegal queue"
+  = error $ "Data.Queue.matchHead: illegal queue"
 matchHead   (S lenf (x:xs) lenr r      )
   = Just (x, deqReverse (check lenr r (lenf - 1) xs))
 
@@ -85,7 +85,7 @@ matchLast :: Queue a -> Maybe (a,Queue a)
 matchLast (S _    []      _    []    ) = Nothing
 matchLast (S _    [x]     _    []    ) = Just (x, empty)
 matchLast (S _    (_:_:_) _    []    )
-  = error $ "Dequeue.matchLast: illegal queue"
+  = error $ "Data.Queue.matchLast: illegal queue"
 matchLast   (S lenf f       lenr (x:xs)) = Just (x, check lenf f (lenr - 1) xs)
 
 --- Transforms a list to a double ended queue.
