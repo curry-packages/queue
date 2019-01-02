@@ -2,7 +2,7 @@
 module RandomTest ( test, eq ) where
 
 import List ( nub )
-import Test.EasyCheck
+import Test.Prop
 
 import System.Random
 
